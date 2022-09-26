@@ -58,7 +58,8 @@ Pay only journey allows Consumers to use Pay by Account (PbA) Request for Paymen
  - When the payment confirmation has been completed, Merchant/Creditor website displays the success page or cancel page based on transaction status.
 
 The following sequence diagram shows the interaction between the Merchant/Creditor website and DSP Bank app:
-![Non proxy journey Pay Without Agreement Sequence Diagram](img-url)
+![Non proxy journey Pay Without Agreement Sequence Diagram](https://user-images.githubusercontent.com/90037467/192297237-f6515217-0653-4e91-911f-cc3f9e3d9a32.png)
+
 ###### Figure 2: Non proxy journey Pay Without Agreement Sequence Diagram
 
 **2. Pay and Link Use Case (Pay with Agreement)-** <br />
@@ -72,7 +73,8 @@ A sample Pay and Link journey includes the following steps:
  - When the order confirmation (Pay with Agreement) has been completed, Merchant/Creditor website displays the success page or cancel page based on transaction status.
 
 The following sequence diagram shows the interaction between the Merchant/Creditor website and DSP app:
-![Non proxy journey Pay with Agreement Diagram](img-url)
+![Non proxy journey Pay with Agreement Diagram](https://user-images.githubusercontent.com/90037467/192297495-f6ffb72b-7b70-4a3d-b28b-7cdf06044683.png)
+
 ###### Figure 3: Non proxy journey Pay with Agreement Diagram
 
 **3. Link Account Use Case –** <br />
@@ -86,7 +88,8 @@ A sample Link Account journey includes the following steps:
  - When the linking confirmation has been completed, Merchant/Creditor website displays the success page or cancel page based on linking status.
 
 The following sequence diagram shows the interaction between the Merchant/Creditor website and DSP app:
-![Non proxy journey Agreement Without Pay Diagram](img-url)
+![Non proxy journey Agreement Without Pay Diagram](https://user-images.githubusercontent.com/90037467/192297697-d3ad63b2-39fa-48d8-b4f2-37ed8293b80f.png)
+
 ###### Figure 4: Non proxy journey Agreement Without Pay Diagram
 
 ## <u>Technical overview</u>
@@ -126,7 +129,8 @@ The overall folder structure is represented in Figure below and contains:
 6.	A **README.md** file which contains a brief description about the SDK.
 7.	A **CHANGELOG.md** file which contains a curated, chronologically ordered list of notable changes for each version of a project.
 
-![Creditor Commerce Library folder structure](img-url)
+![Creditor Commerce Library folder structure](https://user-images.githubusercontent.com/90037467/192297817-e0a574c7-a75f-4481-97fd-07886592d079.png)
+
 ###### Figure 5: Creditor Commerce Library folder structure
 
 ### <u>Creditor Commerce Library Integration Steps</u>
@@ -142,7 +146,7 @@ jQuery library version which is considered while integration:
 jQuery is used by the Merchant/Creditor website to perform various operations. It should be the first script to be imported in the project. jQuery can be included by printing the following HTML script tag in the parent HTML page in the header section on our project index page. This will import jQuery plugin into the project.
 
 ```javascript
-	<head>
+    <head>
 	...
     	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	...
@@ -160,11 +164,11 @@ Extract the **Creditor_Commerce_Library_Api.zip** and add the **artefact.js** in
 
 **A)** Import the library file **artefact.js** (downloaded on the Merchants/Creditors web application) in the parent page where the DSP’s needs to be displayed. 
 ```javascript
-<html>
+  <html>
     <head>
     	<script src="../zapp-creditor-commerce-library-web/1.0.0/assets/artefact-1.0.0.js"></script>
     </head>
-</html>
+  </html>
 ```
 
 **B)** The Creditor Commerce library could be added into Merchant/Creditor web application by adding invoking getDspDetails function with cdnUrl location. Please follow sample code snapshot for the same.
@@ -493,8 +497,8 @@ $(document).ready(function () {
 
 merchantFunctionToRenderDspLogoAndDetails = function () {
     for (i = 0; i < zappCreditorCommerceApi.dspCount; i++) {
-        $("#merchantBankListContainer").append(`<li class='list-group-item'><img class="cfiLogo" src="${zappCreditorCommerceApi.dspDetail[i].dspLogo}" alt="${zappCreditorCommerceApi.dspDetail[i].dspName}"/>` +
-            `<span class="cfiNameLabel"><p class="mb-0">${zappCreditorCommerceApi.dspDetail[i].dspName}</p><span>Bank Account</span></span><a id="${zappCreditorCommerceApi.dspDetail[i].dspUniqueId}" href="#" class="select-link" onclick="submitUserChoice('${zappCreditorCommerceApi.dspDetail[i].dspUniqueId}','${zappCreditorCommerceApi.dspDetail[i].dspName}')">Select</a></li>`);
+        $("#merchantBankListContainer").append(`<li class='list-group-item'><img class="dspLogo" src="${zappCreditorCommerceApi.dspDetail[i].dspLogo}" alt="${zappCreditorCommerceApi.dspDetail[i].dspName}"/>` +
+            `<span class="dspNameLabel"><p class="mb-0">${zappCreditorCommerceApi.dspDetail[i].dspName}</p><span>Bank Account</span></span><a id="${zappCreditorCommerceApi.dspDetail[i].dspUniqueId}" href="#" class="select-link" onclick="submitUserChoice('${zappCreditorCommerceApi.dspDetail[i].dspUniqueId}','${zappCreditorCommerceApi.dspDetail[i].dspName}')">Select</a></li>`);
     }
 };
 
